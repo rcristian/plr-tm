@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	file.destination = "kmeans.backup"
   end
   config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.network "forwarded_port", guest: 5432, host: 6432
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
